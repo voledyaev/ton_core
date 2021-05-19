@@ -1,0 +1,23 @@
+name: ton_core_example
+description: Demonstrates how to use the ton_core plugin.
+
+publish_to: "none"
+
+environment:
+  sdk: ">=2.13.0 <3.0.0"
+  flutter: ">=2.2.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  ton_core:
+    path: ../
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  lint: ^1.5.3
+
+flutter:
+  uses-material-design: true

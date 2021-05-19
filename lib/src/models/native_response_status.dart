@@ -1,0 +1,4 @@
+enum NativeResponseStatus {
+  success,
+  error,
+}

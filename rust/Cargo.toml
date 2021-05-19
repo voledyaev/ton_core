@@ -1,0 +1,22 @@
+[package]
+authors = ["Vadim Ledyaev <v.o.ledyaev@gmail.com>"]
+edition = "2018"
+name = "ton_core"
+version = "0.1.0"
+
+[lib]
+crate-type = ["staticlib", "cdylib"]
+name = "ton_core"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+base64 = "0.10.1"
+hex = "0.3.2"
+num-derive = "0.2"
+num-traits = "0.2"
+openssl = {version = "0.10", features = ["vendored"]}
+serde = {version = "1.0", features = ["derive"]}
+serde_json = "1.0"
+tokio = {version = "0.2", features = ["full"], default-features = false}
+ton_client = {git = "https://github.com/tonlabs/TON-SDK.git"}
