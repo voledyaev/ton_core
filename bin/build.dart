@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:collection/collection.dart';
+import 'package:path/path.dart';
 
 Future<void> main(List<String> arguments) async {
   final androidNdkHome = arguments.firstOrNull;
@@ -10,7 +11,8 @@ Future<void> main(List<String> arguments) async {
     exit(1);
   }
 
-  const workingDirectory = '../rust';
+  final currentDirname = dirname(Platform.script.path);
+  final workingDirectory = normalize('$currentDirname/../rust');
 
   Future<Process> execute({
     required String executable,
