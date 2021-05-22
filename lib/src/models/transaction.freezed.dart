@@ -23,12 +23,14 @@ class _$TransactionTearOff {
   _Transaction call(
       {required String id,
       @JsonKey(fromJson: Transaction._ltFromJson) int? lt,
+      required int now,
       @JsonKey(fromJson: Transaction._prevTransLtFromJson) int? prevTransLt,
       required TransactionMessage inMessage,
       required List<TransactionMessage> outMessages}) {
     return _Transaction(
       id: id,
       lt: lt,
+      now: now,
       prevTransLt: prevTransLt,
       inMessage: inMessage,
       outMessages: outMessages,
@@ -48,6 +50,7 @@ mixin _$Transaction {
   String get id => throw _privateConstructorUsedError;
   @JsonKey(fromJson: Transaction._ltFromJson)
   int? get lt => throw _privateConstructorUsedError;
+  int get now => throw _privateConstructorUsedError;
   @JsonKey(fromJson: Transaction._prevTransLtFromJson)
   int? get prevTransLt => throw _privateConstructorUsedError;
   TransactionMessage get inMessage => throw _privateConstructorUsedError;
@@ -68,6 +71,7 @@ abstract class $TransactionCopyWith<$Res> {
   $Res call(
       {String id,
       @JsonKey(fromJson: Transaction._ltFromJson) int? lt,
+      int now,
       @JsonKey(fromJson: Transaction._prevTransLtFromJson) int? prevTransLt,
       TransactionMessage inMessage,
       List<TransactionMessage> outMessages});
@@ -87,6 +91,7 @@ class _$TransactionCopyWithImpl<$Res> implements $TransactionCopyWith<$Res> {
   $Res call({
     Object? id = freezed,
     Object? lt = freezed,
+    Object? now = freezed,
     Object? prevTransLt = freezed,
     Object? inMessage = freezed,
     Object? outMessages = freezed,
@@ -100,6 +105,10 @@ class _$TransactionCopyWithImpl<$Res> implements $TransactionCopyWith<$Res> {
           ? _value.lt
           : lt // ignore: cast_nullable_to_non_nullable
               as int?,
+      now: now == freezed
+          ? _value.now
+          : now // ignore: cast_nullable_to_non_nullable
+              as int,
       prevTransLt: prevTransLt == freezed
           ? _value.prevTransLt
           : prevTransLt // ignore: cast_nullable_to_non_nullable
@@ -133,6 +142,7 @@ abstract class _$TransactionCopyWith<$Res>
   $Res call(
       {String id,
       @JsonKey(fromJson: Transaction._ltFromJson) int? lt,
+      int now,
       @JsonKey(fromJson: Transaction._prevTransLtFromJson) int? prevTransLt,
       TransactionMessage inMessage,
       List<TransactionMessage> outMessages});
@@ -155,6 +165,7 @@ class __$TransactionCopyWithImpl<$Res> extends _$TransactionCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? lt = freezed,
+    Object? now = freezed,
     Object? prevTransLt = freezed,
     Object? inMessage = freezed,
     Object? outMessages = freezed,
@@ -168,6 +179,10 @@ class __$TransactionCopyWithImpl<$Res> extends _$TransactionCopyWithImpl<$Res>
           ? _value.lt
           : lt // ignore: cast_nullable_to_non_nullable
               as int?,
+      now: now == freezed
+          ? _value.now
+          : now // ignore: cast_nullable_to_non_nullable
+              as int,
       prevTransLt: prevTransLt == freezed
           ? _value.prevTransLt
           : prevTransLt // ignore: cast_nullable_to_non_nullable
@@ -191,6 +206,7 @@ class _$_Transaction implements _Transaction {
   const _$_Transaction(
       {required this.id,
       @JsonKey(fromJson: Transaction._ltFromJson) this.lt,
+      required this.now,
       @JsonKey(fromJson: Transaction._prevTransLtFromJson) this.prevTransLt,
       required this.inMessage,
       required this.outMessages});
@@ -204,6 +220,8 @@ class _$_Transaction implements _Transaction {
   @JsonKey(fromJson: Transaction._ltFromJson)
   final int? lt;
   @override
+  final int now;
+  @override
   @JsonKey(fromJson: Transaction._prevTransLtFromJson)
   final int? prevTransLt;
   @override
@@ -213,7 +231,7 @@ class _$_Transaction implements _Transaction {
 
   @override
   String toString() {
-    return 'Transaction(id: $id, lt: $lt, prevTransLt: $prevTransLt, inMessage: $inMessage, outMessages: $outMessages)';
+    return 'Transaction(id: $id, lt: $lt, now: $now, prevTransLt: $prevTransLt, inMessage: $inMessage, outMessages: $outMessages)';
   }
 
   @override
@@ -224,6 +242,8 @@ class _$_Transaction implements _Transaction {
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.lt, lt) ||
                 const DeepCollectionEquality().equals(other.lt, lt)) &&
+            (identical(other.now, now) ||
+                const DeepCollectionEquality().equals(other.now, now)) &&
             (identical(other.prevTransLt, prevTransLt) ||
                 const DeepCollectionEquality()
                     .equals(other.prevTransLt, prevTransLt)) &&
@@ -240,6 +260,7 @@ class _$_Transaction implements _Transaction {
       runtimeType.hashCode ^
       const DeepCollectionEquality().hash(id) ^
       const DeepCollectionEquality().hash(lt) ^
+      const DeepCollectionEquality().hash(now) ^
       const DeepCollectionEquality().hash(prevTransLt) ^
       const DeepCollectionEquality().hash(inMessage) ^
       const DeepCollectionEquality().hash(outMessages);
@@ -259,6 +280,7 @@ abstract class _Transaction implements Transaction {
   const factory _Transaction(
       {required String id,
       @JsonKey(fromJson: Transaction._ltFromJson) int? lt,
+      required int now,
       @JsonKey(fromJson: Transaction._prevTransLtFromJson) int? prevTransLt,
       required TransactionMessage inMessage,
       required List<TransactionMessage> outMessages}) = _$_Transaction;
@@ -271,6 +293,8 @@ abstract class _Transaction implements Transaction {
   @override
   @JsonKey(fromJson: Transaction._ltFromJson)
   int? get lt => throw _privateConstructorUsedError;
+  @override
+  int get now => throw _privateConstructorUsedError;
   @override
   @JsonKey(fromJson: Transaction._prevTransLtFromJson)
   int? get prevTransLt => throw _privateConstructorUsedError;

@@ -79,6 +79,7 @@ pub async unsafe extern "C" fn get_transactions(
     let transactions_query_fields: &str = r#"
         id,
         lt,
+        now,
         prev_trans_lt,
         in_message {
             src,

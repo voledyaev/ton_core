@@ -15,6 +15,7 @@ class Transaction with _$Transaction {
   const factory Transaction({
     required String id,
     @JsonKey(fromJson: Transaction._ltFromJson) int? lt,
+    required int now,
     @JsonKey(fromJson: Transaction._prevTransLtFromJson) int? prevTransLt,
     required TransactionMessage inMessage,
     required List<TransactionMessage> outMessages,
