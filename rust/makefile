@@ -73,7 +73,7 @@ target/armv7-linux-androideabi/release/libton_core.so: $(SOURCES) ndk-home
 target/i686-linux-android/release/libton_core.so: $(SOURCES) ndk-home
 	CC_i686_linux_android=$(ANDROID_I686_LINKER) \
 	CARGO_TARGET_I686_LINUX_ANDROID_LINKER=$(ANDROID_I686_LINKER) \
-		cargo  build --target i686-linux-android --release
+		cargo build --target i686-linux-android --release
 	@echo "[DONE] $@"
 
 target/x86_64-linux-android/release/libton_core.so: $(SOURCES) ndk-home
