@@ -15,6 +15,7 @@ import 'models/account.dart';
 import 'models/contract_type.dart';
 import 'models/keypair.dart';
 import 'models/message.dart';
+import 'models/native_exception.dart';
 import 'models/native_response.dart';
 import 'models/transaction.dart';
 import 'utils/proceed_on_isolate.dart';
@@ -173,9 +174,12 @@ class TonCore {
     );
 
     final string = response.handle();
-    final json = jsonDecode(string).first as Map<String, dynamic>;
-
-    return Account.fromJson(json);
+    final list = jsonDecode(string) as List<Map<String, dynamic>>;
+    if (list.isNotEmpty) {
+      return Account.fromJson(list.first);
+    } else {
+      throw NativeException('Account not found');
+    }
   }
 
   Future<List<Transaction>> getTransactions({
