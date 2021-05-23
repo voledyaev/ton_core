@@ -174,9 +174,9 @@ class TonCore {
     );
 
     final string = response.handle();
-    final list = jsonDecode(string) as List<Map<String, dynamic>>;
+    final list = jsonDecode(string) as List<dynamic>;
     if (list.isNotEmpty) {
-      return Account.fromJson(list.first);
+      return Account.fromJson(list.first as Map<String, dynamic>);
     } else {
       throw NativeException('Account not found');
     }
